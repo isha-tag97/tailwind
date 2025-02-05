@@ -3,7 +3,7 @@
 function Footer() {
   return (
     <footer className="bg-gray-900 text-white pt-10">
-      {/* Newsletter Section */}
+      {/* Newsletter  */}
       <div className="bg-teal-500 text-center py-6">
         <h2 className="text-xl font-semibold mb-2">Newsletter</h2>
         <p className="text-sm mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
@@ -17,10 +17,10 @@ function Footer() {
         </div>
       </div>
 
-      {/* Footer Content */}
+      {/* Footer  */}
       <div className="px-8 md:px-20 lg:px-32 pt-10 pb-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* About Section */}
+          {/* About  */}
           <div>
             <h3 className="text-lg font-semibold mb-4">About</h3>
             <p className="text-sm text-gray-400">
@@ -28,7 +28,7 @@ function Footer() {
             </p>
           </div>
 
-          {/* Navigation Section */}
+          {/* Navi  */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Navigations</h3>
             <ul className="space-y-2">
@@ -39,7 +39,7 @@ function Footer() {
             </ul>
           </div>
 
-          {/* Follow Us and Search Section */}
+          {/* Follow  */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4 text-gray-400">
@@ -60,7 +60,7 @@ function Footer() {
         </div>
       </div>
 
-      {/* Footer Bottom */}
+      {/*  Bottom */}
       <div className="text-center py-4 border-t border-gray-700">
         <p className="text-gray-500 text-sm">
           Copyright &copy; 2025 All rights reserved | This template is made with <span className="text-red-500">&#9829;</span> by TestDemo
