@@ -11,7 +11,7 @@ const Blog = () => {
               <img
                 src="src/img/header.jpg"
                 alt="Blog post"
-                className="rounded-lg w-full h-40 object-cover shadow-sm"
+                className=" w-full h-40 object-cover shadow-sm"
               />
               <h3 className="mt-4 text-lg font-semibold">Many People Selling Online</h3>
               <p className="text-sm text-gray-500">
