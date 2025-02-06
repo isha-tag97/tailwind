@@ -49,8 +49,10 @@ function Popularcard() {
       <p className="text-center text-gray-500 mb-6">
         Lorem Ipsum Dolor Sit Amet
       </p>
+
+      {/* First div for the first 3 products */}
       <div className="grid md:grid-cols-3 gap-6">
-        {products.map((product) => (
+        {products.slice(0, 3).map((product) => (
           <div
             key={product.id}
             className="relative rounded-lg overflow-hidden group shadow-lg"
@@ -60,19 +62,46 @@ function Popularcard() {
               alt={product.title}
               className="w-full h-52 object-cover group-hover:opacity-80 transition"
             />
-            
-        
-            <div className="absolute bottom-3 left-3 text-white  rounded-lg">
-            <div className="text-xs bg-teal-500 px-3 py-1 w-22 rounded-full flex justify-center items-center whitespace-nowrap">
-  {product.category}
-</div>
+            <div className="absolute bottom-3 left-3 text-white rounded-lg">
+              <div className="text-xs bg-teal-500 px-3 py-1 w-22 rounded-full flex justify-center items-center whitespace-nowrap">
+                {product.category}
+              </div>
 
               <h3 className="font-semibold text-lg">{product.title}</h3>
               <p className="text-sm">{product.location}</p>
             </div>
 
             {/* Heart Icon */}
-            <button className="absolute bottom-3 right-3  bg-[#ffffff57] w-10 h-10  p-2 rounded-full hover:bg-gray-100">
+            <button className="absolute bottom-3 right-3 bg-[#ffffff57] w-10 h-10 p-2 rounded-full hover:bg-gray-100">
+              <FontAwesomeIcon icon={faHeart} className="text-white" />
+            </button>
+          </div>
+        ))}
+      </div>
+
+      {/* Second div for the last 2 products */}
+      <div className="grid md:grid-cols-2 gap-6 mt-6">
+        {products.slice(3, 5).map((product) => (
+          <div
+            key={product.id}
+            className="relative rounded-lg overflow-hidden group shadow-lg"
+          >
+            <img
+              src={product.image}
+              alt={product.title}
+              className="w-full h-52 object-cover group-hover:opacity-80 transition"
+            />
+            <div className="absolute bottom-3 left-3 text-white rounded-lg">
+              <div className="text-xs bg-teal-500 px-3 py-1 w-22 rounded-full flex justify-center items-center whitespace-nowrap">
+                {product.category}
+              </div>
+
+              <h3 className="font-semibold text-lg">{product.title}</h3>
+              <p className="text-sm">{product.location}</p>
+            </div>
+
+            {/* Heart Icon */}
+            <button className="absolute bottom-3 right-3 bg-[#ffffff57] w-10 h-10 p-2 rounded-full hover:bg-gray-100">
               <FontAwesomeIcon icon={faHeart} className="text-white" />
             </button>
           </div>
