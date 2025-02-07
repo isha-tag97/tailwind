@@ -1,5 +1,6 @@
 
 import './App.css'
+import Csv from './Csv.tsx'
 import Test from './Test.tsx'
 // bootsrap.min.css
 // import 'bootstrap/dist/css/bootstrap.min.css';
@@ -11,7 +12,8 @@ function App() {
   return (
     <>
     {/* <Webone/> */}
-    <Test/>
+    {/* <Test/> */}
+    <Csv/>
     </>
   )
 }

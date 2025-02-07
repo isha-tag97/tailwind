@@ -42,7 +42,7 @@ const products = [
 
 function Popularcard() {
   return (
-    <div className="max-w-6xl mx-auto py-10">
+    <div className="max-w-6xl mx-32 py-10">
       <h2 className="text-center text-2xl font-semibold text-teal-500">
         Popular Products
       </h2>

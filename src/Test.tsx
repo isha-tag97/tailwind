@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faBuilding,
@@ -8,6 +9,10 @@ import {
   faEllipsisH,
   faHeart,
   faLocationDot,
+  faChevronRight,
+  faChevronLeft,
+  faSun,
+  faMoon,
 } from "@fortawesome/free-solid-svg-icons";
 import Popularcard from "./Components/Popularcard";
 import Trending from "./Components/Trending";
@@ -15,81 +20,16 @@ import Testimonial from "./Components/Testimonial";
 import Blog from "./Components/Blog";
 import Footer from "./Components/Footer";
 
-const services = [
-  { serviceName: "Real Estate", count: "3,921", icon: faBuilding },
-  { serviceName: "Books & Magazines", count: "398", icon: faBook },
-  { serviceName: "Furniture", count: "1,229", icon: faCouch },
-  { serviceName: "Electronics", count: "32,891", icon: faTv },
-  { serviceName: "Cars & Vehicles", count: "29,221", icon: faCar },
-  { serviceName: "Other", count: "219", icon: faEllipsisH },
-];
-
-const featuredAds = [
-  {
-    category: "Electronics",
-    title: "iPhone X gray",
-    location: "Don St, Brooklyn, New York",
-    reviews: "3 Reviews",
-    image: "src/img/f1.jpeg",
-  },
-  {
-    category: "Cars & Vehicles",
-    title: "Red Luxury Car",
-    location: "Don St, Brooklyn, New York",
-    reviews: "3 Reviews",
-    image: "src/img/f2.jpg",
-  },
-  {
-    category: "Real Estate",
-    title: "House with Swimming Pool",
-    location: "Don St, Brooklyn, New York",
-    reviews: "3 Reviews",
-    image: "src/img/f3.jpg",
-  },
-  {
-    category: "Furniture",
-    title: "Wooden Chair & Table",
-    location: "Don St, Brooklyn, New York",
-    reviews: "3 Reviews",
-    image: "src/img/f4.jpeg",
-  },
-];
-
-const ServiceCard = ({ serviceName, count, icon }) => (
-  <div className="flex flex-col items-center justify-center p-4">
-    <div className="text-teal-500 text-3xl mb-2">
-      <FontAwesomeIcon icon={icon} />
-    </div>
-    <p className="text-gray-500 text-sm text-center mb-2">{serviceName}</p>
-    <p className="text-black-500 text-sm bg-gray-300 rounded-xl px-2 py-1 text-center">
-      {count}
-    </p>
-  </div>
-);
-
-const FeaturedAdCard = ({ category, title, location, reviews, image }) => (
-  <div className="bg-white shadow-lg rounded-lg overflow-hidden">
-    <img src={image} alt={title} className="w-full h-40 object-cover" />
-    <div className="p-4">
-      <span className="text-gray-500 text-sm bg-gray-300 rounded-xl px-2 py-1">
-        {category}
-      </span>
-      <h6 className="text-teal-500 text-lg whitespace-nowrap">{title}</h6>
-      <p className="text-gray-500 text-sm">{location}</p>
-      <div className="flex items-center justify-between mt-2 text-sm text-gray-500">
-        <span>{reviews}</span>
-        <button className="relative text-teal-500 bg-gray-100 w-[28px] h-[28px] bottom-[85px] rounded-3xl hover:text-teal-600">
-          <FontAwesomeIcon icon={faHeart} />
-        </button>
-      </div>
-    </div>
-  </div>
-);
-
 const Test = () => {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleTheme = () => {
+    setDarkMode(!darkMode);
+  };
+
   return (
-    <div>
-      <div className="min-h-screen bg-gray-100">
+    <div className={darkMode ? "dark bg-gray-900 text-white" : "bg-gray-100"}>
+      <div className="min-h-screen">
         {/* Header Section */}
         <div className="relative bg-cover bg-center h-[500px] flex flex-col justify-start items-center text-white bg-[url('./img/header.jpg')]">
           <header className="relative w-[1100px] mt-5 bg-white rounded-sm z-10 shadow-md">
@@ -135,6 +75,18 @@ const Test = () => {
             </div>
           </header>
 
+          {/* Dark Mode Toggle Button */}
+          <button
+            onClick={toggleTheme}
+            className="fixed top-5 right-5 bg-teal-500 text-white px-4 py-2 rounded-lg shadow-md hover:bg-teal-600 transition"
+          >
+            {darkMode ? (
+              <FontAwesomeIcon icon={faSun} className="text-yellow-300" />
+            ) : (
+              <FontAwesomeIcon icon={faMoon} className="text-gray-300" />
+            )}
+          </button>
+
           {/* Hero Content */}
           <div className="text-center px-4 mt-16">
             <h2 className="text-4xl">Largest Classifieds In The World</h2>
@@ -172,28 +124,13 @@ const Test = () => {
           </div>
         </div>
 
-        {/* Services Section */}
-        <div className="relative bottom-[50px] bg-white rounded-lg mt-4 w-[80%] grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mx-auto gap-4">
-          {services.map((service) => (
-            <ServiceCard key={service.serviceName} {...service} />
-          ))}
-        </div>
-
-        {/* Featured Ads Section */}
-        <div className="mt-6 w-[80%] mx-auto">
-          <h2 className="text-2xl font-bold mb-4">Featured Ads</h2>
-          <div className="grid md:grid-cols-4 sm:grid-cols-2 gap-4">
-            {featuredAds.map((ad, index) => (
-              <FeaturedAdCard key={index} {...ad} />
-            ))}
-          </div>
-        </div>
+        {/* Other Sections */}
+        <Popularcard />
+        <Trending />
+        <Testimonial />
+        <Blog />
+        <Footer />
       </div>
-      <Popularcard />
-      <Trending />
-      <Testimonial />
-      <Blog />
-      <Footer />
     </div>
   );
 };
